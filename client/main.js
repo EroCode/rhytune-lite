@@ -5,8 +5,6 @@ import './main.html';
 
 import App from '../imports/ui/App.js';
 
-import '../imports/api/songs.js';
-
 Meteor.startup(() => {
   render(<App />, document.getElementById('render-target'));
 });
