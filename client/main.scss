@@ -1,0 +1,7 @@
+@import "{}/node_modules/@blueprintjs/core/lib/scss/variables.scss";
+
+body {
+  padding: 10px;
+  padding-top: $pt-navbar-height;
+  font-family: sans-serif;
+}
