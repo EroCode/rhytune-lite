@@ -4,7 +4,7 @@
 
 * Meteor
   * kadira:flow-router
-  * kadira:blaze-layout
+  * kadira:react-layout
   * accounts-ui
   * ? collection2
   * SimpleSchema

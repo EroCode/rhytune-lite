@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { withTracker } from 'meteor/react-meteor-data';
-import { Songs } from '../api/songs.js';
+// import { withTracker } from 'meteor/react-meteor-data';
+// import { Songs } from '../api/songs.js';
 import { Button, Navbar, Alignment, InputGroup } from "@blueprintjs/core";
 import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/icons/lib/css/blueprint-icons.css";
@@ -11,9 +11,13 @@ class App extends Component {
   renderNavBar() {
     return <Navbar fixedToTop>
       <Navbar.Group align={Alignment.LEFT}>
-          <Navbar.Heading>Rhytune Lite</Navbar.Heading>
+        <Navbar.Heading>Rhytune Lite</Navbar.Heading>
+        <a href="/">
           <Button className="bp3-minimal" icon="home" text="Home" />
-          <Button className="bp3-minimal" icon="document" text="Files" />
+        </a>
+        <a href="/songs">
+          <Button className="bp3-minimal" icon="document" text="Songs" />
+        </a>
       </Navbar.Group>
       <Navbar.Group align={Alignment.RIGHT}>
         <InputGroup type="search" leftIcon="search" placeholder="Search everything ..."/>
@@ -24,28 +28,15 @@ class App extends Component {
     </Navbar>
   }
 
-  renderSongsList() {
-    return this.props.songs.map((song) => (
-      <div key={ song._id }>
-        <h3>{ song.title }</h3>
-        <p>{ song.artist }</p>
-      </div>
-    ))
-  }
-
   render() {
     return (
       <div>
         { this.renderNavBar() }
-        { this.renderSongsList() }
+        { this.props.main }
       </div>
     )
   }
 
 }
 
-export default withTracker(() => {
-  return {
-    songs: Songs.find({}).fetch(),
-  };
-})(App);
+export default App;
