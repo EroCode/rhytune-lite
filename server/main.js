@@ -1,5 +1,11 @@
-import '../imports/api/songs.js';
+import { Songs } from '../imports/api/songs.js';
 
-// Meteor.publish('songs.single', function(songId) {
-// 	return Songs.findOne({ _id: new Mongo.ObjectID(FlowRouter.current().params.id) })
-// });
+Meteor.publish('songs.list', function() {
+	return Songs.find({})
+})
+
+Meteor.publish('songs.single', function( _id ) {
+	return Songs.find({
+		_id
+	})
+});
