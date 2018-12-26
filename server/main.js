@@ -5,7 +5,5 @@ Meteor.publish('songs.list', function() {
 })
 
 Meteor.publish('songs.single', function( _id ) {
-	return Songs.find({
-		_id
-	})
+	return Songs.find({ _id: _id })
 });

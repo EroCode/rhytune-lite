@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import ReactDOM from 'react-dom';
 // import { withTracker } from 'meteor/react-meteor-data';
 // import { Songs } from '../api/songs.js';
-import { InputGroup, Button } from "@blueprintjs/core";
+import { InputGroup, Button, Toast, Toaster, Position } from "@blueprintjs/core";
 
 // App component - represents the whole app
 class SongsNew extends Component {
@@ -33,7 +33,9 @@ class SongsNew extends Component {
 		if (err) {
 		  alert(err);
 		} else {
-		  // success!
+			const toasterSuccess = Toaster.create({position: Position.TOP});
+			toasterSuccess.show({ message: "Success." });
+			this.setState({artist: '', title: ''});
 		}
 	  });
 	}
